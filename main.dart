@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:food/screen/Home.dart';
-import 'package:food/widgets/todo_items.dart';
+import '../screen/Home.dart';
+import '../widgets/todo_items.dart';
 
 void main() {
   runApp(const MyApp());

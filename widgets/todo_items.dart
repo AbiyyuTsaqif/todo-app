@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:food/constants/colors.dart';
-import 'package:food/model/todo.dart';
+import '../constants/colors.dart';
 import '../model/todo.dart';
+import '../model/todo.dart';
+import '../screen/Home.dart';
 
 class ToDoItem extends StatelessWidget {
   final ToDo todo;
-  const ToDoItem({Key? key, required this.todo}) : super(key: key);
+  final ontodochange;
+  final ondeleteitem;
+
+  const ToDoItem(
+      {Key? key,
+      required this.todo,
+      required this.ontodochange,
+      required this.ondeleteitem})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +22,7 @@ class ToDoItem extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20),
       child: ListTile(
         onTap: () {
-          print("ketekan");
+          ontodochange(todo);
         },
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),

@@ -43,6 +43,8 @@ class _HomeState extends State<Home> {
                       for (ToDo todoo in todosList)
                         ToDoItem(
                           todo: todoo,
+                          ontodochange: _handletodochange,
+                          ondeleteitem: () {},
                         ),
                     ],
                   ),
@@ -101,6 +103,12 @@ class _HomeState extends State<Home> {
     );
   }
 
+  void _handletodochange(ToDo todo) {
+    setState(() {
+      todo.isDone = !todo.isDone;
+    });
+  }
+
   Widget searchBox() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10),
@@ -130,7 +138,7 @@ class _HomeState extends State<Home> {
     return AppBar(
       backgroundColor: tdBGColor,
       elevation: 0,
-      title: const Row(
+      title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Icon(
